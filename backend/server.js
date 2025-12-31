@@ -2,6 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import Todo from "./models/Todo.js";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
@@ -10,7 +13,7 @@ app.use(cors());
 
 // MongoDB Connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/todoDB")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
@@ -39,7 +42,7 @@ app.get("/todos", async (req, res) => {
   }
 });
 
-// Start server
-app.listen(4000, () => {
-  console.log("Server running on port 4000");
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
