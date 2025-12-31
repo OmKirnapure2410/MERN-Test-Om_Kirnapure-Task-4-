@@ -35,6 +35,33 @@ Make sure the following are installed on your system:
 - MongoDB (Local or MongoDB Compass)
 
 ---
+## 🔧 Environment Variables Setup
+
+This project uses environment variables to keep sensitive information secure.
+
+### 1. Create a `.env` file
+
+Inside the **backend** folder, create a file named `.env`.
+
+### 2️. Add the following variables
+PORT=4000
+MONGO_URI=your_mongodb_connection_string_here
+
+
+### 3️. MongoDB Setup
+
+You can use **either**:
+- MongoDB Atlas (Free Tier), or
+- Local MongoDB running on your system
+
+Example (Local MongoDB): MONGO_URI=mongodb://127.0.0.1:27017/todoDB
+
+
+### 4️. Important Notes
+- The `.env` file is **not included in the repository** for security reasons.
+- A `.env.example` file is provided as a reference.
+- Make sure to restart the backend server after creating the `.env` file.
+
 
 ##  How to Run the Frontend
 cd frontend
